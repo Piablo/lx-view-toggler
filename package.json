@@ -1,0 +1,25 @@
+{
+  "name": "lx-view-toggler",
+  "version": "1.0.0",
+  "description": "Toggles view between mobile and desktop states",
+  "main": "index.js",
+  "author": "Paul Buys",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-file index.js"
+  },
+  "dependencies": {
+    "styled-components": "^5.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Piablo/lx-view-toggler.git"
+  }
+}
