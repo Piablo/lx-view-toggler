@@ -5,13 +5,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getConfig = exports["default"] = void 0;
+exports.getProps = exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -33,18 +33,20 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var getConfig = function getConfig() {
-  var config = {
-    state: "No config available yet"
+var getProps = function getProps() {
+  var props = {
+    state: "No props available yet"
   };
-  return config;
+  return props;
 };
 
-exports.getConfig = getConfig;
+exports.getProps = getProps;
 
 var ViewToggler = function ViewToggler(props) {
-  var config = props.config;
-  var content = props.children; //useStates
+  var _props$topContent = props.topContent,
+      topContent = _props$topContent === void 0 ? "" : _props$topContent,
+      _props$bottomContent = props.bottomContent,
+      bottomContent = _props$bottomContent === void 0 ? "" : _props$bottomContent; //useStates
 
   var _useState = (0, _react.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
@@ -106,26 +108,25 @@ var ViewToggler = function ViewToggler(props) {
   };
 
   var ShowWindowDimensions = function ShowWindowDimensions() {
-    var _useWindowSize = useWindowSize(),
-        _useWindowSize2 = _slicedToArray(_useWindowSize, 2),
-        width = _useWindowSize2[0],
-        height = _useWindowSize2[1];
+    useWindowSize();
   };
 
   return /*#__PURE__*/_react["default"].createElement(Container, null, /*#__PURE__*/_react["default"].createElement(ContainerAnchor, {
     height: height
-  }, ShowWindowDimensions(), /*#__PURE__*/_react["default"].createElement(PaddedContainer, null, /*#__PURE__*/_react["default"].createElement(ContentContainer, null, content))));
+  }, ShowWindowDimensions(), /*#__PURE__*/_react["default"].createElement(PaddedContainer, null, /*#__PURE__*/_react["default"].createElement(ContentContainer, null, /*#__PURE__*/_react["default"].createElement(TopContent, null, topContent), /*#__PURE__*/_react["default"].createElement(BottomContent, null, bottomContent)))));
 };
 
 var Container = _styledComponents["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 100vh;\n    background-color: rgb(45,45,45);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"])));
 
-var ContainerAnchor = _styledComponents["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    max-width: 800px;\n    height: ", ";\n    background-color: white;\n"])), function (props) {
-  return props.height;
-});
+var ContainerAnchor = _styledComponents["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    max-width: 800px;\n    height: 100%;\n    background-color: white;\n"])));
 
-var PaddedContainer = _styledComponents["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    padding-top: 20px;\n    padding-bottom: 20px;\n    width: calc(100% - 40px);\n    margin: auto;\n"])));
+var PaddedContainer = _styledComponents["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: calc(100% - 40px);\n    margin: auto;\n    height: 100%;\n    position: relative;\n"])));
 
-var ContentContainer = _styledComponents["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n"])));
+var ContentContainer = _styledComponents["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 100%;\n    position: relative;\n"])));
+
+var BottomContent = _styledComponents["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    padding-bottom: 20px;\n"])));
+
+var TopContent = _styledComponents["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    padding-top: 20px;\n    width: 100%;\n"])));
 
 var _default = ViewToggler;
 exports["default"] = _default;

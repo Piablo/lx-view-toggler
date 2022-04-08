@@ -2,18 +2,18 @@ import React, { useEffect, useState, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 
 
-export const getConfig = () => {
-    const config = {
-        state: "No config available yet"
+export const getProps = () => {
+    const props = {
+        state: "No props available yet"
     }
-    return config
+    return props
 }
 
 const ViewToggler = (props) => {
     const {
-        config
+        topContent = "",
+        bottomContent = "",
     } = props
-    const content = props.children;
 
     //useStates
     const [viewSizeType, setViewSizeType] = useState()
@@ -62,7 +62,7 @@ const ViewToggler = (props) => {
         return size;
     }
     const ShowWindowDimensions = () => {
-        const [width, height] = useWindowSize();
+        useWindowSize();
     }
 
     return(
@@ -72,9 +72,11 @@ const ViewToggler = (props) => {
                     ShowWindowDimensions()
                 }
                 <PaddedContainer>
-                    <ContentContainer>{content}</ContentContainer>
+                    <ContentContainer>
+                        <TopContent>{topContent}</TopContent>
+                        <BottomContent>{bottomContent}</BottomContent>
+                    </ContentContainer>
                 </PaddedContainer>
-                
             </ContainerAnchor>
         </Container>
     )
@@ -91,16 +93,28 @@ const Container = styled.div`
 const ContainerAnchor = styled.div`
     width: 100%;
     max-width: 800px;
-    height: ${props => props.height};
+    height: 100%;
     background-color: white;
 `
 const PaddedContainer = styled.div`
-    padding-top: 20px;
-    padding-bottom: 20px;
     width: calc(100% - 40px);
     margin: auto;
+    height: 100%;
+    position: relative;
 `
 const ContentContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    position: relative;
+`
+const BottomContent = styled.div`
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 20px;
+`
+const TopContent = styled.div`
+    padding-top: 20px;
     width: 100%;
 `
 

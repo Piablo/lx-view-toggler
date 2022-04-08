@@ -1,6 +1,6 @@
 {
   "name": "lx-view-toggler",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "Toggles view between mobile and desktop states",
   "main": "index.js",
   "author": "Paul Buys",
